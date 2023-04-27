@@ -1,1 +1,1 @@
-# testing-project by Oona Mikkonen
+# Software testing project by Oona Mikkonen
