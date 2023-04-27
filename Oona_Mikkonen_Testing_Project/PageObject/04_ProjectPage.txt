@@ -1,0 +1,80 @@
+
+### **Creating a project Testsuit Overview**
+
+#******************** Settings ************************
+
+*** Settings ***
+
+# TODO: Write Dcocumentation 
+
+Documentation Project Test scenario. CRUD Operation: Create, Read, Update, Delete	
+
+# TODO: Write Precondition, Postcondition, Tags
+
+Pre Condition Account must be created by the user before and user must log in	 
+Post Condition Close All Browsers
+Tags Create Project, TS-1-CreateProject(For Jira project management issue reference)
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Project creation field variables
+
+CreateProjectUrl = https://gitlab.com/projects/new
+Project_Name Project-1
+Template_Project_Name = Template-1
+Template_Project_Name_Change = Template-2  
+Template_name = Spring
+Template_path = Template-path
+UserName = Oonu
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive and Negative Test Cases and Test Process steps
+
+# Positive Test examples are below write test process steps for each below test case
+
+Create blank project
+	Navigate to Create project page CreateProjectUrl
+	Navigate to Create blank project 
+	Insert  project name  Project_Name
+	Create project
+	Valide that message is showing Project ' Project_Name ' was successfully created.
+	
+Create template project
+	Navigate to Create project page CreateProjectUrl
+	Navigate to Create from template
+	Use template Spring
+	Insert project name Template_Project_Name
+	Create project
+	Valide that message is showing The Project was successfully imported.
+
+Update name of template project
+	Navigate to template project general Settings
+	Change project name Template_Project_Name_Change
+	Save changes
+	Valide that message is showing The Project 'Template_Project_Name_Change ' was successfully updated.
+
+Delete template project
+	Navigate to template project general Settings
+	Expand advanced settings
+	Delete project
+	Enter username/path name to confirm delete UserName/Template_path
+	Valide that message is showing Project ' Template_Project_Name_Change 'is in the process of being deleted.
+
+
+# Negative Test examples are below write test process steps for each below test case
+
+	Create a blank project with the previous same name
+		Navigate To CreateProjectUrl
+		Navigate To CreateBlankProject
+		Insert  project name  Project_Name
+		Create project
+		Verify that error message should show Project name space has already been taken, name has already been taken, path has already been taken
+
+

@@ -1,0 +1,62 @@
+
+### **Issue Testsuit Overview**
+
+
+#******************** Settings ************************
+
+*** Settings ***
+Documentation	Issue Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+# TODO: Write Precondition and Postcondition, Tags 
+
+Pre Condition Project must be created by the user before 
+Post Condition Close All Browsers	
+Tags Issue, TS-1-Issue(For Jira project management issue reference)
+
+#******************* Common Variables ********************
+
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Issue creation field variables, Updated name of the issue
+
+IssueUrl = https://gitlab.com/group-slug-here/project-slug-here/-/issues/new
+Issue_Title = newIssue
+User = Mikko Mallikas
+New_Issue_Title = newName
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive Test Cases and Test Process steps
+
+# Positive Test examples are below write test process steps for each below test case
+
+Create issue
+	Navigate to create a new issue IssueUrl
+	Input title for issue Issue_Title
+	Create issue
+	Valide that message is showing Issue created now by User
+
+Update name of issue
+	Navigate to created issue
+	Edit issue
+	Input new issue title New_Issue_Title
+	Save changes
+	Valide that message is showing User changed title from Issue_Title to New_Issue_Title just now
+
+Create second issue with privious updated name
+	Navigate to create a new issue IssueUrl
+	Input title for issue Issue_Title
+	Create issue
+	Valide that message is showing Issue created now by User
+
+Delete first issue
+	Navigate to created issue New_Issue_Title
+	Navigate to issue actions to delete issue
+	Confirm delete issue
+	Valide that message is showing The issue was successfully deleted.
+

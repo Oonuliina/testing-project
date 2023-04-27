@@ -1,0 +1,95 @@
+
+
+### **Register functionality Testsuit Overview**
+
+#******************** Settings ************************
+
+*** Settings ***
+
+# TODO: Write Documentation 
+
+Documentation Registration Test scenario with verification, valid and invalid credentials.	
+
+# TODO: Write Precondition, Postcondition, Tags
+
+Pre Condition Open Browser	
+Post Condition Close All Browsers	
+Tags Register, TS-1-Register(For Jira project management issue reference)
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Registration field variables
+
+LoginUrl= https://gitlab.com/users/sign_up
+FirstName= Mikko
+LastName= Mallikas	
+Username= Mikko123
+UsernameSecond= Mallikas123
+Email= testingemail@gmail.com
+EmailSecond = testi@hotmail.com
+Password= *********
+InvalidEmail=emailadress
+Empty= 
+
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive and Negative Test Cases and Test Process steps
+
+# Positive Test examples are below write test process steps for each below test case
+
+Register user with valid username and password
+	Navigate To Sing Up Page LoginUrl
+	Input FirstName	FirstName
+	Input LastName LastName
+	Input Username Username
+	Input Email Email
+	Input Password Password
+	Submit Register Form
+	Verify Page Should Contain Confirm Email Page
+
+# Negative Test examples are below write test process steps for each below test case
+
+Register user with same above username
+	Navigate To Sing Up Page LoginUrl
+	Input FirstName FirstName
+	Input LastName LastName
+	Input Username UserName
+	Input Email EmailSecond
+	Input Password Password
+	Submit Register Form
+	Verify That Error message should show This Username is already taken
+
+Register user with empty password
+	Navigate To Sing Up Page LoginUrl
+	Input FirstName FirstName
+	Input LastName LastName
+	Input Username UsernameSecond
+	Input Email EmailSecond
+	Input Password Empty
+	Submit Register Form
+	Verify That Error message should show Minium length for password is 8 characters
+
+Register user with invalid email
+	Navigate To Sing Up Page LoginUrl
+	Input FirstName FirstName
+	Input LastName LastName
+	Input Username UsernameSecond
+	Input Email InvalidEmail
+	Input Password Password
+	Submit Register Form
+	Verify That Error message should show Please provide a valid email adress
+
+Register user Without recaptcha
+	I did not get recaptcha when registering so I could not test it
+
+
+
+
+
